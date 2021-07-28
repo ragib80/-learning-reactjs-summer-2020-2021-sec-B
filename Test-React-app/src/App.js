@@ -37,18 +37,20 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
+
         <Route exact path='/'>
           <h2>Welcome Home</h2>
         </Route>
+
         <Route path='/userlist'>
           <div >
             <UserList list={myuser} callback={deleteCallback} />
           </div>
         </Route>
+
         <Route path='/create'>
           <CreateUser status='add' onAdd={addUser} />
         </Route>
-
 
         <Route path="/edit/:id">
           <UpdateUser status="edit" callback={editUsers} />
@@ -57,6 +59,7 @@ function App() {
         <Route path='*'>
           <h3>404 not found</h3>
         </Route>
+
       </Switch>
     </Router>
   );
