@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import UserList from './components/UserList';
 import Navbar from './components/Navbar';
-import AddUser from './components/AddUser';
+import UpdateUser from './components/UpdateUser';
 import { users } from './usersData';
 import CreateUser from './components/CreateUser';
 
@@ -24,6 +24,11 @@ function App() {
 
   }
 
+  const editUsers = (newUser) => {
+    const data = myuser.filter((user) => user.id !== newUser.id);
+    setUsers([...data, newUser]);
+  };
+
 
 
 
@@ -44,12 +49,11 @@ function App() {
           <CreateUser status='add' onAdd={addUser} />
         </Route>
 
-        {/* <Route path='/Create'>
-          <AddUser status='add' />
-        </Route>*/}
-        <Route path='/edit/:id' children={<AddUser status='edit' />}>
 
+        <Route path="/edit/:id">
+          <UpdateUser status="edit" callback={editUsers} />
         </Route>
+
         <Route path='*'>
           <h3>404 not found</h3>
         </Route>
