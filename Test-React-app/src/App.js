@@ -44,9 +44,7 @@ function App() {
           <CreateUser status='add' onAdd={addUser} />
         </Route>
 
-        {/* <Route path='/Create'>
-          <AddUser status='add' />
-        </Route>*/}
+       
         <Route path='/edit/:id' children={<AddUser status='edit' />}>
 
         </Route>
